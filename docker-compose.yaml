@@ -1,0 +1,16 @@
+version: '3'
+
+networks:
+  pavlov-server:
+    driver: bridge
+
+services:
+  pavlov-server:
+    container_name: pavlov-server
+    hostname: pavlov-server
+    image: pavlov-server:0.1
+    networks:
+      - pavlov-server
+    ports:
+      - 7777:7777
+      - 8177:8177
