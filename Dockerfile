@@ -27,10 +27,10 @@ RUN echo "pavlovversion=0.1" && \
     mkdir -p /home/steam/pavlovserver/Pavlov/Saved/maps
 
 # Config
-COPY mods.txt       /home/steam/pavlovserver/Pavlov/Saved/Config/mods.txt
-COPY whitelist.txt  /home/steam/pavlovserver/Pavlov/Saved/Config/whitelist.txt
-COPY blacklist.txt  /home/steam/pavlovserver/Pavlov/Saved/Config/blacklist.txt
-COPY Game.ini       /home/steam/pavlovserver/Pavlov/Saved/Config/LinuxServer/Game.ini
+COPY --chown=steam:steam mods.txt       /home/steam/pavlovserver/Pavlov/Saved/Config/mods.txt
+COPY --chown=steam:steam whitelist.txt  /home/steam/pavlovserver/Pavlov/Saved/Config/whitelist.txt
+COPY --chown=steam:steam blacklist.txt  /home/steam/pavlovserver/Pavlov/Saved/Config/blacklist.txt
+COPY --chown=steam:steam Game.ini       /home/steam/pavlovserver/Pavlov/Saved/Config/LinuxServer/Game.ini
 
 # Maps
 # TODO
@@ -38,5 +38,9 @@ COPY Game.ini       /home/steam/pavlovserver/Pavlov/Saved/Config/LinuxServer/Gam
 # wget https://cdn.discordapp.com/attachments/841189246903386122/898218113223516241/inst-all.sh
 # chmod +x  inst-all.sh
 # ./inst-all.sh
+
+# Set up entrypoint
+ENTRYPOINT /home/steam/pavlovserver/PavlovServer.sh
+
 EXPOSE 7777
 EXPOSE 8177

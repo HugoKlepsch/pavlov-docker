@@ -6,4 +6,4 @@ VERSION=`cat VERSION`
 
 sed -e "s#{{APIKEY}}#${APIKEY}#g" -e "s#{{SERVERNAME}}#${SERVERNAME}#g" Game.template.ini > Game.ini
 
-sudo docker build . --tag pavlov-server:${VERSION}
+sudo docker build . --tag pavlov-server:${VERSION} --tag pavlov-server:latest
